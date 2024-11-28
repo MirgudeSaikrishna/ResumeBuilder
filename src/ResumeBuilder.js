@@ -126,7 +126,7 @@ const ResumeBuilder = () => {
           y = margin; // Reset vertical position
         }
         doc.text(text, x, y, { maxWidth });
-        return y + lineHeight;
+        return y + lineHeight/2;
       };
     
       const addWrappedText = (text, x, y, maxWidth) => {
@@ -144,26 +144,25 @@ const ResumeBuilder = () => {
     doc.setFontSize(16);
     doc.setFont("helvetica", "bold");
     doc.text("Resume", pageWidth / 2, y, { align: "center" });
-    y += lineHeight * 2;
+    y += lineHeight;
     drawDottedLine(margin, y - 5, pageWidth - margin, y - 5);
-    
+    y +=lineHeight;
     doc.setFontSize(12);
     doc.setFont("helvetica", "normal");
-    doc.text(`Name: ${personalInfo.name || "N/A"}`, 10, y);
+    doc.text(`${personalInfo.name || "N/A"}`, 10, y);
     y += lineHeight;
-    doc.text(`Email: ${personalInfo.email || "N/A"}`, 10, y);
+    doc.text(`${personalInfo.email || "N/A"}`, 10, y);
     y += lineHeight;
-    doc.text(`Phone: ${personalInfo.phone || "N/A"}`, 10, y);
+    doc.text(`${personalInfo.phone || "N/A"}`, 10, y);
     y += lineHeight;
-    doc.text(`Portfolio URL: ${personalInfo.url || "N/A"}`, 10, y);
+    doc.text(`${personalInfo.url || "N/A"}`, 10, y);
     y += lineHeight;
-    doc.text(`About: ${personalInfo.about || "N/A"}`, 10, y , {maxWidth: 180});
-    y += lineHeight*2;
+    doc.text(`${personalInfo.about || "N/A"}`, 10, y , {maxWidth: 180});
+    y += lineHeight;
   
     // Add Skills Section if Data Exists
     if (skills.length > 0) {
         drawDottedLine(margin, y - 5, pageWidth - margin, y - 5); // Add dotted line
-      y += lineHeight;
   
       doc.setFont("helvetica", "bold");
     y = addText("Skills:", margin, y, pageWidth - 2 * margin);
@@ -177,7 +176,6 @@ const ResumeBuilder = () => {
     // Add Experience Section if Data Exists
     if (experience.length > 0) {
         drawDottedLine(margin, y - 5, pageWidth - margin, y - 5);
-        y += lineHeight;
         doc.setFont("helvetica", "bold");
         y = addText("Experience:", margin, y, pageWidth - 2 * margin);
         doc.setFont("helvetica", "normal");
@@ -189,7 +187,6 @@ const ResumeBuilder = () => {
     // Add Achievements Section if Data Exists
     if (achievements.length > 0) {
         drawDottedLine(margin, y - 5, pageWidth - margin, y - 5);
-        y += lineHeight;
         doc.setFont("helvetica", "bold");
         y = addText("Achievements:", margin, y, pageWidth - 2 * margin);
         doc.setFont("helvetica", "normal");
@@ -201,7 +198,6 @@ const ResumeBuilder = () => {
     // Add Education Section if Data Exists
     if (education.length > 0) {
         drawDottedLine(margin, y - 5, pageWidth - margin, y - 5);
-        y += lineHeight;
         doc.setFont("helvetica", "bold");
         y = addText("Education:", margin, y, pageWidth - 2 * margin);
         doc.setFont("helvetica", "normal");
@@ -212,7 +208,6 @@ const ResumeBuilder = () => {
     }
     if (projects.length > 0) {
         drawDottedLine(10, y - 5, 200, y - 5); // Add dotted line
-        y += lineHeight;
   
         doc.setFont("helvetica", "bold");
         y = addText("Projects:", margin, y, pageWidth - 2 * margin);
