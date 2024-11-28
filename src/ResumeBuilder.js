@@ -150,15 +150,15 @@ const ResumeBuilder = () => {
     doc.setFontSize(12);
     doc.setFont("helvetica", "normal");
     doc.text(`${personalInfo.name || "N/A"}`, 10, y);
-    y += lineHeight;
+    y += lineHeight/2;
     doc.text(`${personalInfo.email || "N/A"}`, 10, y);
-    y += lineHeight;
+    y += lineHeight/2;
     doc.text(`${personalInfo.phone || "N/A"}`, 10, y);
-    y += lineHeight;
+    y += lineHeight/2;
     doc.text(`${personalInfo.url || "N/A"}`, 10, y);
-    y += lineHeight;
+    y += lineHeight/2;
     doc.text(`${personalInfo.about || "N/A"}`, 10, y , {maxWidth: 180});
-    y += lineHeight;
+    y += lineHeight*2;
   
     // Add Skills Section if Data Exists
     if (skills.length > 0) {
@@ -171,7 +171,7 @@ const ResumeBuilder = () => {
     skills.forEach((skill) => {
         y = addText(`- ${skill}`, margin + 5, y, pageWidth - 2 * margin);
       });
-      y+=lineHeight;
+      y+=lineHeight/2;
     }
   
     // Add Experience Section if Data Exists
