@@ -155,10 +155,8 @@ const ResumeBuilder = () => {
     y += lineHeight;
     doc.text(`${personalInfo.phone || "N/A"}`, 10, y);
     y += lineHeight;
-    if(url.length>0){
     doc.text(`${personalInfo.url || "N/A"}`, 10, y);
     y += lineHeight;
-    }
     doc.text(`${personalInfo.about || "N/A"}`, 10, y , {maxWidth: 180});
     y += lineHeight;
   
