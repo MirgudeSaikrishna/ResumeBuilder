@@ -47,8 +47,7 @@ const HomePage = () => {
       <p style={paragraphStyle}>
         Create a professional resume quickly and easily with our intuitive
         resume builder. Add your skills, experience, and personal information,
-        and download your resume in PDF format!
-        |Feedbacks are welcomed|
+        and download your resume in PDF format!Feedbacks are welcomed.
       </p>
       <button onClick={() => navigate("/resume-builder")} style={buttonStyle}>
         Get Started
