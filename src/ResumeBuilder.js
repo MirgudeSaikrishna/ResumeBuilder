@@ -155,8 +155,10 @@ const ResumeBuilder = () => {
     y += lineHeight;
     doc.text(`${personalInfo.phone || "N/A"}`, 10, y);
     y += lineHeight;
+    if(url.length>0){
     doc.text(`${personalInfo.url || "N/A"}`, 10, y);
     y += lineHeight;
+    }
     doc.text(`${personalInfo.about || "N/A"}`, 10, y , {maxWidth: 180});
     y += lineHeight;
   
@@ -171,6 +173,7 @@ const ResumeBuilder = () => {
     skills.forEach((skill) => {
         y = addText(`- ${skill}`, margin + 5, y, pageWidth - 2 * margin);
       });
+      y+=lineHeight;
     }
   
     // Add Experience Section if Data Exists
@@ -288,7 +291,7 @@ const ResumeBuilder = () => {
         <input
           type="url"
           name="url"
-          placeholder="Portfolio URL or GitHub url"
+          placeholder="url"
           value={personalInfo.url}
           onChange={handleInputChange}
           style={inputStyle}
